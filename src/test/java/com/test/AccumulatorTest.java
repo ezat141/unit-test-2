@@ -1,5 +1,6 @@
 package com.test;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,11 +29,11 @@ public class AccumulatorTest {
     void accumulatorShouldBeIncreasedWhenPassingAnotherValue() {
 
         accumulator.accumulate(4);
-        int value = accumulator.accumulate(3);
+        int value = accumulator.accumulate(5);
 
-        if(value != 7){
-            throw new RuntimeException("Invalid value");
-        }
+        Assertions.assertEquals(7, value);
+
+
     }
 
     @Test
