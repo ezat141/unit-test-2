@@ -17,7 +17,7 @@ public class AccumulatorTest {
     }
 
     @Test
-    void test1() {
+    void accumulatorShouldBeIncreasedWhenPassingInitValue() {
         int value = accumulator.accumulate(4);
         if(value != 4){
             throw new RuntimeException("Invalid value");
@@ -25,7 +25,7 @@ public class AccumulatorTest {
     }
 
     @Test
-    void test2() {
+    void accumulatorShouldBeIncreasedWhenPassingAnotherValue() {
 
         accumulator.accumulate(4);
         int value = accumulator.accumulate(3);
@@ -36,7 +36,7 @@ public class AccumulatorTest {
     }
 
     @Test
-    void test3() {
+    void accumulatorShouldGiveErrorWhenPassingNegativeValue() {
         try {
 
             accumulator.accumulate(-2);
