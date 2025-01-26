@@ -1,12 +1,23 @@
 package com.test;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AccumulatorTest {
 
+    public AccumulatorTest() {
+        System.out.println("AccumulatorTest Constructor");
+    }
+    Accumulator accumulator = new Accumulator();
+
+    @BeforeEach
+     void setup(){
+        System.out.println("@BeforeEach");
+    }
+
     @Test
     void test1() {
-        Accumulator accumulator = new Accumulator();
         int value = accumulator.accumulate(4);
         if(value != 4){
             throw new RuntimeException("Invalid value");
@@ -15,7 +26,7 @@ public class AccumulatorTest {
 
     @Test
     void test2() {
-        Accumulator accumulator = new Accumulator();
+
         accumulator.accumulate(4);
         int value = accumulator.accumulate(3);
 
@@ -27,7 +38,7 @@ public class AccumulatorTest {
     @Test
     void test3() {
         try {
-            Accumulator accumulator = new Accumulator();
+
             accumulator.accumulate(-2);
             throw new RuntimeException("Negative value shouldn't be provided");
         } catch (IllegalArgumentException e) {
